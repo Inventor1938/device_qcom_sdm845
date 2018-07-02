@@ -205,6 +205,10 @@ PRODUCT_PACKAGES += \
     wificond \
     wifilogd
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.oneplus_sdm845
+
 # Sensor conf files
 PRODUCT_COPY_FILES += \
     device/qcom/sdm845/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \

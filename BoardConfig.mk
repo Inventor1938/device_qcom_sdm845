@@ -214,5 +214,11 @@ TARGET_ENABLE_MEDIADRM_64 := true
 BOARD_SYSTEMSDK_VERSIONS:=28
 BOARD_VNDK_VERSION:= current
 
+#Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
+# Sepolicy
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sdm845/sepolicy/private
+
 #BOARD_PREBUILT_VENDORIMAGE := device/qcom/sdm845/vendor.img
 include device/qcom/sdm845/BoardConfigVendor.mk
