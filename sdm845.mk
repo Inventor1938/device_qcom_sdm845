@@ -211,7 +211,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.qcom:64
 
 # Sensor conf files
 PRODUCT_COPY_FILES += \
