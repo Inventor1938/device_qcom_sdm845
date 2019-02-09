@@ -55,10 +55,10 @@ ifeq ($(TARGET_USES_NQ_NFC),true)
 NQ3XX_PRESENT := true
 endif
 
-PRODUCT_PACKAGES += NfcNci \
-                    libnfc_nci_jni \
-                    libnfc-nci \
-                    Tag
+#PRODUCT_PACKAGES += NfcNci \
+#                    libnfc_nci_jni \
+#                    libnfc-nci \
+#                    Tag
 
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -141,15 +141,15 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 
 
 #ANT+ stack
-PRODUCT_PACKAGES += \
-    AntHalService \
-    libantradio \
-    antradio_app \
-    libvolumelistener
+#PRODUCT_PACKAGES += \
+#    AntHalService \
+#    libantradio \
+#    antradio_app \
+#    libvolumelistener
 
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-service \
-    android.hardware.broadcastradio@1.0-impl
+#PRODUCT_PACKAGES += \
+#    android.hardware.configstore@1.0-service \
+#    android.hardware.broadcastradio@1.0-impl
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -319,3 +319,4 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 
 $(call inherit-product-if-exists, device/qcom/sdm845/device-vendor.mk)
 $(call inherit-product-if-exists, vendor/oneplus/prebuilts.mk)
+$(call inherit-product-if-exists, vendor/inv/common.mk)
