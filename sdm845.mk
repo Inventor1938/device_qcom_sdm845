@@ -147,9 +147,9 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 #    antradio_app \
 #    libvolumelistener
 
-#PRODUCT_PACKAGES += \
-#    android.hardware.configstore@1.0-service \
-#    android.hardware.broadcastradio@1.0-impl
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.0-service \
+    android.hardware.broadcastradio@1.0-impl
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -208,6 +208,15 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oneplus_sdm845
+
+# Enable UxExperience IOPrefetcher
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    vendor.enable_prefetch=1 \
+    vendor.iop.enable_uxe=1 \
+    vendor.iop.enable_prefetch_ofr=1 \
+    vendor.perf.iop_v3.enable=1 \
+    ro.vendor.at_library=libqti-at.so \
+    persist.vendor.qti.games.gt.prof=1
 
 # Power
 PRODUCT_PACKAGES += \
