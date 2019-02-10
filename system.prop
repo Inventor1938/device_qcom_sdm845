@@ -188,3 +188,6 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam
 # network location provider is not functional
 ro.location.osnlp.package=com.google.android.gms
 ro.location.osnlp.region.package=
+
+sdm.debug.disable_inline_rotator=1
+sdm.debug.disable_inline_rotator_secure=1
