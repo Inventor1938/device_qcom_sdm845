@@ -211,16 +211,16 @@ PRODUCT_PACKAGES += \
 
 # Enable UxExperience IOPrefetcher
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    vendor.enable_prefetch=1 \
-    vendor.iop.enable_uxe=1 \
-    vendor.iop.enable_prefetch_ofr=1 \
-    vendor.perf.iop_v3.enable=1 \
     ro.vendor.at_library=libqti-at.so \
-    persist.vendor.qti.games.gt.prof=1
+    vendor.debug.enable.gamed=0
 
 # Power
 PRODUCT_PACKAGES += \
     power.qcom:64
+
+# Common init scripts
+PRODUCT_PACKAGES += \
+    init.qcom.rc
 
 # Sensor conf files
 PRODUCT_COPY_FILES += \
@@ -248,7 +248,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vr.high_performance.xml
 
 # Kernel modules install path
-KERNEL_MODULES_INSTALL := dlkm
+KERNEL_MODULES_INSTALL := system
 KERNEL_MODULES_OUT := out/target/product/$(PRODUCT_NAME)/$(KERNEL_MODULES_INSTALL)/lib/modules
 
 #FEATURE_OPENGLES_EXTENSION_PACK support string config file

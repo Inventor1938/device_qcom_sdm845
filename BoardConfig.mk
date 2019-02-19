@@ -7,10 +7,10 @@ TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOOTLOADER_BOARD_NAME := sdm845
 
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv8-2a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := kryo300
+TARGET_CPU_VARIANT := cortex-a75
 #TARGET_CPU_VARIANT := generic
 
 TARGET_2ND_ARCH := arm
@@ -130,7 +130,7 @@ TARGET_USES_QCOM_BSP := false
 
 TARGET_USES_IOPHAL := true
 
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 service_locator.enable=1 swiotlb=2048 androidboot.configfs=true firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
 
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
@@ -180,6 +180,15 @@ endif
 
 TARGET_USES_GRALLOC1 := true
 
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
+TARGET_USES_QCOM_DISPLAY_BSP := true
+TARGET_USES_COLOR_METADATA := true
+TARGET_USES_DRM_PP := true
+#Enable Wide color gamut support
+TARGET_HAS_WIDE_COLOR_DISPLAY := true
+
 # Enable sensor multi HAL
 USE_SENSOR_MULTI_HAL := true
 
@@ -204,6 +213,7 @@ TARGET_USES_LM := false
 ifeq ($(ENABLE_VENDOR_IMAGE), false)
 $(error "Vendor Image is mandatory !!")
 endif
+#BOARD_PREBUILT_VENDORIMAGE := true
 
 #Flag to enable System SDK Requirements.
 #All vendor APK will be compiled against system_current API set.
@@ -220,8 +230,9 @@ BOARD_VNDK_VERSION:= current
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Sepolicy
-BOARD_SEPOLICY_DIRS += device/qcom/sdm845/sepolicy/qcom
+#BOARD_SEPOLICY_DIRS += device/qcom/sdm845/sepolicy/qcom
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sdm845/sepolicy/private
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sdm845/sepolicy/public
 
 #BOARD_PREBUILT_VENDORIMAGE := device/qcom/sdm845/vendor.img
 include device/qcom/sdm845/BoardConfigVendor.mk

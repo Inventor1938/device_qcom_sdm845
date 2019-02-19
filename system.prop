@@ -189,5 +189,9 @@ vendor.camera.aux.packagelist=org.codeaurora.snapcam
 ro.location.osnlp.package=com.google.android.gms
 ro.location.osnlp.region.package=
 
+# SSR
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.ssr.restart_level=ALL_ENABLE
+
 sdm.debug.disable_inline_rotator=1
 sdm.debug.disable_inline_rotator_secure=1
